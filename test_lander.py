@@ -38,6 +38,7 @@ def test_lander_part1():
     print("test_lander part 1 SUCCESS!")
 
 test_lander_part1()
+<<<<<<< HEAD
 
 # two test controllers that allow us to test simulate_landing as if the
 #  human returned 0 or 4 every time when asked for how many thrusts.
@@ -135,3 +136,5 @@ def test_lander_part4():
 
 
 test_lander_part4()
+=======
+>>>>>>> f0c871dafedfb3ae1f1fac4d740e5abf6184716b
