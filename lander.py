@@ -59,9 +59,17 @@ def update_onesecond():
 
 
 def has_crashed():
+    global altitude
+    global velocity
+    global strength
+
     return(altitude <= 0 and velocity >strength)
 
 def has_safely_landed():
+    global altitude
+    global velocity
+    global strength
+
     return(altitude <= 0 and velocity<=strength)
 
 
@@ -76,15 +84,13 @@ def reset_lander(a,v,f):
 
 
 def human_controller():
-
-
     print (get_status())
     thrust = input("How much thrust this round? ")
     return (int(thrust))
 
 
 def simulate_landing(player):
-    while not(has_crashed()) and not(has_safely_landed()):
+    while(not has_crashed()) or (not has_safely_landed()):
         thrust(player())
         update_onesecond()
         if has_crashed():
@@ -107,16 +113,9 @@ def reset_world(g,s,a_l,a_u):
 
 
 
-
-
 def has_disintegrated():
     global strength
     return(strength <= 0)
-
-
-if __name__ == "__main__":
-    simulate_landing(human_controller)
-
 
 
 def smart_controller():
@@ -146,3 +145,7 @@ def smart_controller():
             return number
         else:
             return 0
+
+if __name__ == "__main__":
+    simulate_landing(human_controller)
+    # simulate_landing(smart_controller())
